@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trinkflaschen Liste</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Marke</th>
+            <th>Preis in Euro</th>
+            <th>Isoliert</th>
+            <th>Herrstellungsdatum</th>
+            <th>Aktionen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="t : ${trinkflaschen}">
+            <td th:text="${t.marke}"></td>
+            <td th:text="${t.preis}"></td>
+            <td th:text="${t.isolated}"></td>
+            <td th:text="${t.herstellungsdatum}"></td>
+            <td>
+                <a th:href="@{/trink/update(id=${t.id})}" >Bearbeiten</a>
+                |
+                <a th:href="@{/trink/delete(id=${t.id})}"
+
+                   onclick="return confirm('Wirklich löschen?');">Löschen</a>
+            </td>
+        </tr>
+        </tbody>
+
+
+    </table>
+
+    <p>
+        <a href="/trink/save">Neue Trinkflasche Speichern</a>
+    </p>
+</body>
+</html>

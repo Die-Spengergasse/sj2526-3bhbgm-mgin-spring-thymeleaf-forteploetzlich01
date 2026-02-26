@@ -18,6 +18,7 @@
             <tr th:each="p : ${patients}">
                 <td th:text="${p.name}"></td>
                 <td th:text="${p.birth}"></td>
+                <td><a th:href="@{/edit(id=${p.id})}">Edit Patient</a></td>
             </tr>
         </tbody>
 

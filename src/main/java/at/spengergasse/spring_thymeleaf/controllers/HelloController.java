@@ -14,6 +14,6 @@ public class HelloController {
     public  String index(Model model) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         model.addAttribute("today", LocalDate.now().format(dtf));
-        return "index";
+        return "TrinkIndex";
     }
 }
