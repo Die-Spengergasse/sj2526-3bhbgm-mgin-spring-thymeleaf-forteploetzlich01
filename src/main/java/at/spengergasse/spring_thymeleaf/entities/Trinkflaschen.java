@@ -1,32 +1,30 @@
 package at.spengergasse.spring_thymeleaf.entities;
 
 
+import jakarta.persistence.*;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "trinkflaschen")
 public class Trinkflaschen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    // Das ist eine ganz einfache Klasse mit Attributen und den dazugehörigen Getter und Setter Methoden.
+    private Long id;  // ← Long statt int!
+
     private String marke;
-    private int liter;
-    private double preis;
-    private boolean isIsolated;
+    private Double liter;
+    private Double preis;
+    private Boolean isolated;
     private LocalDate herstellungsdatum;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -38,28 +36,28 @@ public class Trinkflaschen {
         this.marke = marke;
     }
 
-    public int getLiter() {
+    public Double getLiter() {
         return liter;
     }
 
-    public void setLiter(int liter) {
+    public void setLiter(Double liter) {
         this.liter = liter;
     }
 
-    public double getPreis() {
+    public Double getPreis() {
         return preis;
     }
 
-    public void setPreis(double preis) {
+    public void setPreis(Double preis) {
         this.preis = preis;
     }
 
-    public boolean isIsolated() {
-        return isIsolated;
+    public Boolean getIsolated() {
+        return isolated;
     }
 
-    public void setIsolated(boolean isolated) {
-        isIsolated = isolated;
+    public void setIsolated(Boolean isolated) {
+        this.isolated = isolated;
     }
 
     public LocalDate getHerstellungsdatum() {

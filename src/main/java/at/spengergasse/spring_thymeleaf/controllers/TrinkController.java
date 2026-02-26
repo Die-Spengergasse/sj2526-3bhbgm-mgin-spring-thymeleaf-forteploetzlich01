@@ -49,14 +49,14 @@ public class TrinkController {
 
     // Löscht eine Trinkflasche anhand der ID, die als Parameter übergeben wird, danach Weiterleitung zur Liste aller Trinkflaschen
     @GetMapping("/delete")
-    public String delete(@RequestParam("id") int id) {
+    public String delete(@RequestParam("id") Long id) {
         trinkflaschenRepository.deleteById(id);
         return "redirect:/trink/list";
     }
 
     // Zeigt ein Formular zum Aktualisieren einer Trinkflasche an, basierend auf der ID, die als Parameter übergeben wird.
     @GetMapping("/update")
-    public String updateForm(@RequestParam("id") int id, Model model) {
+    public String updateForm(@RequestParam("id") Long id, Model model) {
         Trinkflaschen trinkflasche = trinkflaschenRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("ID nicht gefunden"));
         model.addAttribute("trinkflasche", trinkflasche);
